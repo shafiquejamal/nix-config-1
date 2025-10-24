@@ -19,6 +19,7 @@ in
     entr # Modern Unix `watch`
     fd
     gh
+    google-chrome
     jetbrains-mono # font
     jq
     just
@@ -26,12 +27,12 @@ in
     # neovim
     nmap
     ripgrep
+    rtorrent
     tree
     unzip
+    uv
     watch
     wget
-    uv
-    google-chrome
 
     # requires nixpkgs.config.allowUnfree = true;
     # vscode-extensions.ms-vscode-remote.remote-ssh

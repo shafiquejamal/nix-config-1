@@ -13,6 +13,9 @@
   # ];
 
   programs.gpg.enable = true;
+  programs.zsh.oh-my-zsh = {
+    enable = false;
+  };
 
   programs.direnv = {
     enable = true;
@@ -84,7 +87,7 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    #initExtra = (builtins.readFile ../mac-dot-zshrc);
+    # initExtra = (builtins.readFile ../data/mac-dot-zshrc);
   };
 
   programs.tmux = {
@@ -187,7 +190,7 @@
   #  # imports = lib.findModulesList ../data/nvim;
   # };
   
-  # programs.neovim = {
+  #programs.neovim = {
   #  enable = true;
   #  viAlias = true;
   #  vimAlias = true;
@@ -221,9 +224,10 @@
 
   #   ];
   #   extraLuaConfig = '' 
-  #     ${builtins.readDir ../data/nvim}
+  #     ${builtins.readFile ../data/nvim/lua/custom/telescope/live_grep.lua}
+  #     ${builtins.readFile ../data/nvim/lua/config/keymaps.lua}
   #     '';
-  # };
+  #};
 
   programs.zoxide.enable = true;
 
