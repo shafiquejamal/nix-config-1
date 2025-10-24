@@ -180,12 +180,12 @@
   programs.bat.config.theme = "Nord";
   #programs.zsh.shellAliases.cat = "${pkgs.bat}/bin/bat";
 
-  programs.nixvim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    # imports = lib.findModulesList ../data/nvim;
-  };
+  # programs.nixvim = {
+  #  enable = true;
+  #  viAlias = true;
+  #  vimAlias = true;
+  #  # imports = lib.findModulesList ../data/nvim;
+  # };
   
   # programs.neovim = {
   #  enable = true;
