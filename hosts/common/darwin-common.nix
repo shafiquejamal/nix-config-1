@@ -98,6 +98,7 @@ in
 #      "The Unarchiver" = 425424353;
 #      "UTM" = 1538878817;
 #      "Wireguard" = 1451685025;
+## Also add WhatsApp. How about Google Meet?
     };
   };
 
