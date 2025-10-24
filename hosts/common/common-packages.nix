@@ -23,7 +23,7 @@ in
     jq
     just
     kubectl
-    neovim
+    # neovim
     nmap
     ripgrep
     tree

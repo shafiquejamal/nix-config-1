@@ -14,14 +14,11 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-darwin";
-
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    # disko.url = "github:nix-community/disko";
-    # disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    # vscode-server.url = "github:nix-community/nixos-vscode-server";
+    
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { ... }@inputs:

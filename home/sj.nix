@@ -180,12 +180,19 @@
   programs.bat.config.theme = "Nord";
   #programs.zsh.shellAliases.cat = "${pkgs.bat}/bin/bat";
 
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    vimdiffAlias = true;
-    defaultEditor = true;
+    # imports = lib.findModulesList ../data/nvim;
+  };
+  
+  # programs.neovim = {
+  #  enable = true;
+  #  viAlias = true;
+  #  vimAlias = true;
+  #  vimdiffAlias = true;
+  #  defaultEditor = true;
   #   plugins = with pkgs.vimPlugins; [
   #     ## regular
   #     comment-nvim
@@ -216,7 +223,7 @@
   #   extraLuaConfig = '' 
   #     ${builtins.readDir ../data/nvim}
   #     '';
- };
+  # };
 
   programs.zoxide.enable = true;
 
