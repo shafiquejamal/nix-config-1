@@ -22,15 +22,16 @@ in
     hostPlatform = lib.mkDefault "${system}";
   };
 
-  #environment.systemPackages = with pkgs; [
-  #  ## unstable
-  #  unstablePkgs.yt-dlp
-  #  unstablePkgs.get_iplayer
-  #  unstablePkgs.colmena
-  #
-  #  ## stable CLI
-  #  pkgs.nix
-  #];
+  environment.systemPackages = with pkgs; [
+    ## unstable
+    # unstablePkgs.yt-dlp
+    # unstablePkgs.get_iplayer
+    unstablePkgs.colmena
+  
+    ## stable CLI
+    # pkgs.nix
+    # firefox
+  ];
 
   fonts.packages = [
     pkgs.nerd-fonts.fira-code
@@ -60,7 +61,7 @@ in
   };
 
   homebrew = {
-    enable = false;
+    enable = true;
     onActivation = {
       cleanup = "zap";
       autoUpdate = true;
@@ -69,39 +70,13 @@ in
     global.autoUpdate = true;
 
     brews = [
-      #"bitwarden-cli"
-      "neovim"
-      "ollama"
-      #"tailscale"
-      #"borders"
+      "mas"
     ];
     taps = [
       #"FelixKratz/formulae" #sketchybar
     ];
     casks = [
-      #"screenflow"
-      #"cleanshot"
-      "adobe-creative-cloud"
-      #"nikitabobko/tap/aerospace"
-      "alacritty"
-      #"alcove"
-      "audacity"
-      #"balenaetcher"
-      #"bambu-studio"
-      "bentobox"
-      "claude"
-      #"claude-code"
-      #"clop"
-      "discord"
-      "displaylink"
-      #"docker"
-      "easy-move-plus-resize"
-      "element"
-      "elgato-camera-hub"
-      "elgato-control-center"
-      "elgato-stream-deck"
       "firefox"
-      "flameshot"
       "font-fira-code"
       "font-fira-code-nerd-font"
       "font-fira-mono-for-powerline"
@@ -109,59 +84,20 @@ in
       "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
-      "google-chrome"
-      #"iina"
-      "hammerspoon"
-      "istat-menus"
-      "iterm2"
-      "jordanbaird-ice"
-      "karabiner-elements"
-      "lm-studio"
-      "logitech-options"
-      "macwhisper"
-      #"marta"
-      "mqtt-explorer"
-      "music-decoy" # github/FuzzyIdeas/MusicDecoy
-      "nextcloud"
-      "notion"
-      "obs"
-      "obsidian"
-      #"ollama-app"
-      "omnidisksweeper"
-      "orbstack"
-      "openscad"
-      "openttd"
-      "plexamp"
-      #"popclip"
-      #"prusaslicer"
-      "raycast"
-      "signal"
-      #"shortcat"
       "slack"
-      "spotify"
-      "steam"
-      #"wireshark"
-      #"viscosity"
-      "visual-studio-code"
-      "vlc"
-      # "lm-studio"
-
-      # # rogue amoeba
-      "audio-hijack"
-      "farrago"
-      "loopback"
-      "soundsource"
+      "signal"
+      "vlc" 
     ];
     masApps = {
-      "AutoMounter" = 1160435653;
-      "Bitwarden" = 1352778147;
-      "Disk Speed Test" = 425264550;
-      "Resize Master" = 1025306797;
-      "rCmd" = 1596283165;
-      "Telegram" = 747648890;
-      "The Unarchiver" = 425424353;
-      "UTM" = 1538878817;
-      "Wireguard" = 1451685025;
+#       "AutoMounter" = 1160435653;
+#      "Bitwarden" = 1352778147;
+#      "Disk Speed Test" = 425264550;
+#      "Resize Master" = 1025306797;
+#      "rCmd" = 1596283165;
+#      "Telegram" = 747648890;
+#      "The Unarchiver" = 425424353;
+#      "UTM" = 1538878817;
+#      "Wireguard" = 1451685025;
     };
   };
 

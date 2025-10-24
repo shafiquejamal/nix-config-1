@@ -180,11 +180,12 @@
   programs.bat.config.theme = "Nord";
   #programs.zsh.shellAliases.cat = "${pkgs.bat}/bin/bat";
 
-  # programs.neovim = {
-  #   enable = true;
-  #   viAlias = true;
-  #   vimAlias = true;
-  #   vimdiffAlias = true;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    defaultEditor = true;
   #   plugins = with pkgs.vimPlugins; [
   #     ## regular
   #     comment-nvim
@@ -212,11 +213,10 @@
   #     telescope-fzf-native-nvim
 
   #   ];
-  #   extraLuaConfig = ''
-  #     ${builtins.readFile ./nvim/options.lua}
-  #     ${builtins.readFile ./nvim/keymap.lua}
-  #   '';
-  # };
+  #   extraLuaConfig = '' 
+  #     ${builtins.readDir ../data/nvim}
+  #     '';
+ };
 
   programs.zoxide.enable = true;
 
