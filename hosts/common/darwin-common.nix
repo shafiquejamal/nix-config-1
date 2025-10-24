@@ -3,7 +3,7 @@ let
   inherit (inputs) nixpkgs nixpkgs-unstable;
 in
 {
-  users.users.alex.home = "/Users/alex";
+  users.users.sj.home = "/Users/sj";
 
   nix = {
     settings = {
@@ -15,28 +15,22 @@ in
   system.stateVersion = 5;
 
   # Set primary user for system-wide activation
-  system.primaryUser = "alex";
+  system.primaryUser = "sj";
 
   nixpkgs = {
     config.allowUnfree = true;
     hostPlatform = lib.mkDefault "${system}";
   };
 
-  environment.systemPackages = with pkgs; [
-    ## unstable
-    unstablePkgs.yt-dlp
-    unstablePkgs.get_iplayer
-    unstablePkgs.colmena
-
-    ## stable CLI
-    pkgs.comma
-    pkgs.hcloud
-    pkgs.just
-    pkgs.lima
-    pkgs.nix
-    pkgs.nodejs
-    pkgs.pass
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  ## unstable
+  #  unstablePkgs.yt-dlp
+  #  unstablePkgs.get_iplayer
+  #  unstablePkgs.colmena
+  #
+  #  ## stable CLI
+  #  pkgs.nix
+  #];
 
   fonts.packages = [
     pkgs.nerd-fonts.fira-code
@@ -66,7 +60,7 @@ in
   };
 
   homebrew = {
-    enable = true;
+    enable = false;
     onActivation = {
       cleanup = "zap";
       autoUpdate = true;
@@ -159,39 +153,15 @@ in
       "soundsource"
     ];
     masApps = {
-      "Amphetamine" = 937984704;
       "AutoMounter" = 1160435653;
       "Bitwarden" = 1352778147;
-      "Creator's Best Friend" = 1524172135;
-      "DaVinci Resolve" = 571213070;
       "Disk Speed Test" = 425264550;
-      "Fantastical" = 975937182;
-      "Ivory for Mastodon by Tapbots" = 6444602274;
-      "Home Assistant Companion" = 1099568401;
-      "Microsoft Remote Desktop" = 1295203466;
-      "Perplexity" = 6714467650;
       "Resize Master" = 1025306797;
       "rCmd" = 1596283165;
-      "Snippety" = 1530751461;
-      #"Tailscale" = 1475387142;
       "Telegram" = 747648890;
       "The Unarchiver" = 425424353;
-      "Todoist" = 585829637;
       "UTM" = 1538878817;
       "Wireguard" = 1451685025;
-
-      "Final Cut Pro" = 424389933;
-
-      # these apps only available via uk apple id
-      #"Logic Pro" = 634148309;
-      #"MainStage" = 634159523;
-      #"Garageband" = 682658836;
-      #"ShutterCount" = 720123827;
-      #"Teleprompter" = 1533078079;
-
-      "Keynote" = 409183694;
-      "Numbers" = 409203825;
-      "Pages" = 409201541;
     };
   };
 

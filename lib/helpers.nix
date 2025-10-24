@@ -1,6 +1,6 @@
 { inputs, outputs, stateVersion, ... }:
 {
-  mkDarwin = { hostname, username ? "alex", system ? "aarch64-darwin",}:
+  mkDarwin = { hostname, username ? "sj", system ? "aarch64-darwin",}:
   let
     inherit (inputs.nixpkgs) lib;
     unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
@@ -34,7 +34,7 @@
         }
         inputs.nix-homebrew.darwinModules.nix-homebrew {
           nix-homebrew = {
-            enable = true;
+            enable = false;
             enableRosetta = true;
             autoMigrate = true;
             mutableTaps = true;

@@ -36,13 +36,7 @@
 
       darwinConfigurations = {
         # personal
-        nauvis = libx.mkDarwin { hostname = "nauvis"; };
-        mac-studio = libx.mkDarwin { hostname = "mac-studio"; };
-        mba15 = libx.mkDarwin { hostname = "mba15"; };
-
-        # work
-        baldrick = libx.mkDarwin { hostname = "baldrick"; };
-        magrathea = libx.mkDarwin { hostname = "magrathea"; };
+        Shafiques-MacBook-Air = libx.mkDarwin { hostname = "Shafiques-MacBook-Air"; };
       };
 
       colmena = {
@@ -62,9 +56,6 @@
         # wd
         morphnix = import ./hosts/nixos/morphnix;
         nvllama = import ./hosts/nixos/nvllama;
-
-        # test system
-        # yeager = nixosSystem "x86_64-linux" "yeager" "alex";
       };
 
     };
