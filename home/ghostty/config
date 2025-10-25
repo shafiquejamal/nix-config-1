@@ -25,3 +25,7 @@ mouse-hide-while-typing = true
 shell-integration = zsh
 
 auto-update = off
+shell-integration-features = no-cursor
+cursor-style = block
+
+set-option -g default-command "reattach-to-user-namespace -l zsh"

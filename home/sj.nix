@@ -11,11 +11,54 @@
   #     ".config/aerospace/aerospace.toml".text = builtins.readFile ./aerospace/aerospace.toml;
   #   })
   # ];
-
+  xdg.configFile."ghostty/config".source = ghostty/config;
+  programs.ghostty.package = null;
+  programs.ghostty.enableZshIntegration = true;
+  # programs.ghostty = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   package = null;
+  #   settings = {
+  #     shell-integration-features = "no-cursor";
+  #     cursor-style = "block";
+  #   };
+  # };
+  # programs.ghostty.settings = {
+  #
+  #   # theme = light:onehalflight,dark:Dracula
+  #   theme = "nord";
+  #
+  #   #font-family = "FiraCode Nerd Font"
+  #   font-family = "BerkeleyMono Nerd Font";
+  #   font-size = 18;
+  #
+  #   window-width = 122;
+  #   window-height = 30;
+  #
+  #   window-padding-x = 6;
+  #   window-padding-y = 6;
+  #   window-padding-balance = true;
+  #
+  #   macos-option-as-alt = true;
+  #   macos-titlebar-style = "native";
+  #   macos-icon = "custom-style";
+  #   macos-icon-ghost-color = "white";
+  #   macos-icon-screen-color = "black";
+  #
+  #   clipboard-paste-protection = false;
+  #
+  #   mouse-hide-while-typing = true;
+  #
+  #   shell-integration = "zsh";
+  #
+  #   auto-update = "off";
+  #   shell-integration-features = "no-cursor";
+  #   cursor-style = "block";
+  # };
   programs.gpg.enable = true;
-  programs.zsh.oh-my-zsh = {
-    enable = false;
-  };
+  # programs.zsh.oh-my-zsh = {
+  #   enable = false;
+  # };
 
   programs.direnv = {
     enable = true;
@@ -87,7 +130,17 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    initExtra = (builtins.readFile ../data/mac-dot-zshrc);
+    initContent = (builtins.readFile ../data/mac-dot-zshrc);
+    syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" "ssh-agent" ];
+      theme = "robbyrussell";
+      extraConfig = ''
+        zstyle :omz:plugins:ssh-agent quiet yes
+        zstyle :omz:plugins:ssh-agent identities id_github id_bitbucket id_digitalocean id_aws.pem
+      '';
+    };
   };
 
   programs.tmux = {
@@ -96,10 +149,10 @@
     clock24 = true;
     historyLimit = 9999999;
     mouse = true;
+    shell = "/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
       gruvbox
       vim-tmux-navigator
-      sensible
     ];
     extraConfig = ''
       # split panes using | and -

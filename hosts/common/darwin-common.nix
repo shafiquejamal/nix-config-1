@@ -85,9 +85,10 @@ in
       "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
-      "slack"
       "signal"
-      "vlc" 
+      "slack"
+      "telegram"
+      "vlc"
       "whatsapp"
     ];
     masApps = {
