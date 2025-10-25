@@ -77,6 +77,7 @@ in
     ];
     casks = [
       "firefox"
+      "folx"
       "font-fira-code"
       "font-fira-code-nerd-font"
       "font-fira-mono-for-powerline"

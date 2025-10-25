@@ -27,7 +27,6 @@ in
     # neovim
     nmap
     ripgrep
-    rtorrent
     tree
     unzip
     uv
