@@ -32,6 +32,7 @@ in
     uv
     watch
     wget
+    zoom-us
 
     # requires nixpkgs.config.allowUnfree = true;
     # vscode-extensions.ms-vscode-remote.remote-ssh
