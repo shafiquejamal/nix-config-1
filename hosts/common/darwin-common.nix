@@ -76,6 +76,7 @@ in
       #"FelixKratz/formulae" #sketchybar
     ];
     casks = [
+      "element"
       "firefox"
       "folx"
       "font-fira-code"
