@@ -88,6 +88,7 @@ in
       "slack"
       "signal"
       "vlc" 
+      "whatsapp"
     ];
     masApps = {
 #       "AutoMounter" = 1160435653;
