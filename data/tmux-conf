@@ -1,0 +1,36 @@
+unbind r
+bind r source-file ~/.tmux.conf
+
+setw -g mode-keys vi
+set -g mouse on
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'dracula/tmux'
+  # for vim
+set -g @resurrect-strategy-vim 'session'
+  # for neovim
+set -g @resurrect-strategy-nvim 'session'
+set -g @continuum-restore 'on'
+set -g @continuum-boot 'on'
+
+set -g @dracula-network-bandwidth-show-interface false
+set -g @dracula-show-fahrenheit false
+# set -g @dracula-show-powerline false 
+# set -g @dracula-show-location false
+# set -g @dracula-show-flags true
+# set -g @dracula-show-left-icon session
+set -g status-position top
+
+# Initialize the tmux plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
