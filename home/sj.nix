@@ -87,7 +87,7 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    # initExtra = (builtins.readFile ../data/mac-dot-zshrc);
+    initExtra = (builtins.readFile ../data/mac-dot-zshrc);
   };
 
   programs.tmux = {
@@ -102,11 +102,6 @@
       sensible
     ];
     extraConfig = ''
-      # remap prefix from 'C-b' to 'C-a'
-      unbind C-b
-      set-option -g prefix C-a
-      bind-key C-a send-prefix
-
       # split panes using | and -
       bind | split-window -h
       bind - split-window -v
@@ -170,7 +165,7 @@
       set -g message-style 'fg=black bg=yellow bold'
 
       # start new session
-      new-session -s main
+      # new-session -s main
     '';
   };
 

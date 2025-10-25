@@ -44,3 +44,4 @@ alias kcgpo='kubectl get pod'
 }
 
 eval "$(starship init zsh)"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'

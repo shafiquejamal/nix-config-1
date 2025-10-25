@@ -26,7 +26,7 @@
     let
       inherit (self) outputs;
 
-      stateVersion = "24.05";
+      stateVersion = "25.05";
       libx = import ./lib { inherit inputs outputs stateVersion; };
 
     in {
