@@ -19,6 +19,7 @@ in
     entr # Modern Unix `watch`
     fd
     gh
+    go
     google-chrome
     jetbrains-mono # font
     jq
@@ -26,8 +27,10 @@ in
     kubectl
     neovim
     nmap
+    nodejs_24
     podman
     ripgrep
+    rustup
     tree
     unzip
     uv

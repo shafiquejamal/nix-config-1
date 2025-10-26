@@ -1,64 +1,10 @@
 { config, inputs, pkgs, lib, unstablePkgs, ... }:
 {
   home.stateVersion = "23.11";
-
-  # list of programs
-  # https://mipmip.github.io/home-manager-option-search
-
-  # aerospace config
-  # home.file = lib.mkMerge [
-  #   (lib.mkIf pkgs.stdenv.isDarwin {
-  #     ".config/aerospace/aerospace.toml".text = builtins.readFile ./aerospace/aerospace.toml;
-  #   })
-  # ];
   xdg.configFile."ghostty/config".source = ghostty/config;
   programs.ghostty.package = null;
   programs.ghostty.enableZshIntegration = true;
-  # programs.ghostty = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  #   package = null;
-  #   settings = {
-  #     shell-integration-features = "no-cursor";
-  #     cursor-style = "block";
-  #   };
-  # };
-  # programs.ghostty.settings = {
-  #
-  #   # theme = light:onehalflight,dark:Dracula
-  #   theme = "nord";
-  #
-  #   #font-family = "FiraCode Nerd Font"
-  #   font-family = "BerkeleyMono Nerd Font";
-  #   font-size = 18;
-  #
-  #   window-width = 122;
-  #   window-height = 30;
-  #
-  #   window-padding-x = 6;
-  #   window-padding-y = 6;
-  #   window-padding-balance = true;
-  #
-  #   macos-option-as-alt = true;
-  #   macos-titlebar-style = "native";
-  #   macos-icon = "custom-style";
-  #   macos-icon-ghost-color = "white";
-  #   macos-icon-screen-color = "black";
-  #
-  #   clipboard-paste-protection = false;
-  #
-  #   mouse-hide-while-typing = true;
-  #
-  #   shell-integration = "zsh";
-  #
-  #   auto-update = "off";
-  #   shell-integration-features = "no-cursor";
-  #   cursor-style = "block";
-  # };
   programs.gpg.enable = true;
-  # programs.zsh.oh-my-zsh = {
-  #   enable = false;
-  # };
 
   programs.direnv = {
     enable = true;
@@ -164,54 +110,6 @@
 
   programs.bat.enable = true;
   programs.bat.config.theme = "Nord";
-  #programs.zsh.shellAliases.cat = "${pkgs.bat}/bin/bat";
-
-  # programs.nixvim = {
-  #  enable = true;
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  # imports = lib.findModulesList ../data/nvim;
-  # };
-  
-  #programs.neovim = {
-  #  enable = true;
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  vimdiffAlias = true;
-  #  defaultEditor = true;
-  #   plugins = with pkgs.vimPlugins; [
-  #     ## regular
-  #     comment-nvim
-  #     lualine-nvim
-  #     nvim-web-devicons
-  #     vim-tmux-navigator
-
-  #     ## with config
-  #     # {
-  #     #   plugin = gruvbox-nvim;
-  #     #   config = "colorscheme gruvbox";
-  #     # }
-
-  #     {
-  #       plugin = catppuccin-nvim;
-  #       config = "colorscheme catppuccin";
-  #     }
-
-  #     ## telescope
-  #     {
-  #       plugin = telescope-nvim;
-  #       type = "lua";
-  #       config = builtins.readFile ./nvim/plugins/telescope.lua;
-  #     }
-  #     telescope-fzf-native-nvim
-
-  #   ];
-  #   extraLuaConfig = '' 
-  #     ${builtins.readFile ../data/nvim/lua/custom/telescope/live_grep.lua}
-  #     ${builtins.readFile ../data/nvim/lua/config/keymaps.lua}
-  #     '';
-  #};
-
   programs.zoxide.enable = true;
 
   programs.ssh = {
