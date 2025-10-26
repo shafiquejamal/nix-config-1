@@ -97,7 +97,6 @@
     mouse = true;
     shell = "/bin/zsh";
     plugins = with pkgs.tmuxPlugins; [
-      gruvbox
       vim-tmux-navigator
     ];
     extraConfig = lib.readFile ../data/tmux-conf;

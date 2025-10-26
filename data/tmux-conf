@@ -10,8 +10,6 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
-# set -g @plugin 'dracula/tmux'
-  # for vim
 set -g @resurrect-strategy-vim 'session'
   # for neovim
 set -g @resurrect-strategy-nvim 'session'
@@ -20,11 +18,19 @@ set -g @continuum-boot 'on'
 
 set -g @dracula-network-bandwidth-show-interface false
 set -g @dracula-show-fahrenheit false
-# set -g @dracula-show-powerline false 
-# set -g @dracula-show-location false
-# set -g @dracula-show-flags true
-# set -g @dracula-show-left-icon session
 set -g status-position top
+
+set -g default-terminal "tmux-256color"
+# set -ag terminal-overrides ",xterm-256color:RGB"
+# set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+# Or use a wildcard instead of forcing a default mode.
+# Some users in the comments of this gist have reported that this work better.
+set -sg terminal-overrides ",*:RGB"
+
+# You can also use the env variable set from the terminal.
+# Useful if you share your configuration betweeen systems with a varying value.
+#set -ag terminal-overrides ",$TERM:RGB"
 
 # Initialize the tmux plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
