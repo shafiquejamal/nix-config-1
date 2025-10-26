@@ -92,7 +92,7 @@ in
       "vlc"
       "whatsapp"
     ];
-    masApps = {
+      #    masApps = {
 #       "AutoMounter" = 1160435653;
 #      "Bitwarden" = 1352778147;
 #      "Disk Speed Test" = 425264550;
@@ -103,7 +103,7 @@ in
 #      "UTM" = 1538878817;
 #      "Wireguard" = 1451685025;
 ## Also add WhatsApp. How about Google Meet?
-    };
+    #    };
   };
 
   # Add ability to used TouchID for sudo authentication
