@@ -26,6 +26,7 @@ in
     kubectl
     neovim
     nmap
+    podman
     ripgrep
     tree
     unzip
