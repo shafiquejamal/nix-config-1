@@ -1,14 +1,18 @@
-{ inputs, pkgs, unstablePkgs, ... }:
-let
-  inherit (inputs) nixpkgs nixpkgs-unstable;
-in
 {
+  inputs,
+  pkgs,
+  unstablePkgs,
+  ...
+}: let
+  inherit (inputs) nixpkgs nixpkgs-unstable;
+in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     nixpkgs-unstable.legacyPackages.${pkgs.system}.beszel
     nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
 
     ## stable
+    cargo
     comma
     coreutils
     diffr # Modern Unix `diff`
@@ -29,14 +33,16 @@ in
     nmap
     nodejs_24
     podman
+    podman-compose
     ripgrep
-    rustup
+    rustc
     tree
     unzip
     uv
     watch
     wget
     zoom-us
+    cargo
 
     # requires nixpkgs.config.allowUnfree = true;
     # vscode-extensions.ms-vscode-remote.remote-ssh

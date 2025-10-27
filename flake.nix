@@ -9,38 +9,49 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    homebrew-core = { url = "github:homebrew/homebrew-core"; flake = false; };
-    homebrew-cask = { url = "github:homebrew/homebrew-cask"; flake = false; };
-    homebrew-bundle = { url = "github:homebrew/homebrew-bundle"; flake = false; };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-darwin";
   };
 
-  outputs = { ... }@inputs:
-    with inputs;
-    let
+  outputs = {...} @ inputs:
+    with inputs; let
       inherit (self) outputs;
 
       stateVersion = "25.05";
-      libx = import ./lib { inherit inputs outputs stateVersion; };
-
+      libx = import ./lib {inherit inputs outputs stateVersion;};
     in {
-
       darwinConfigurations = {
         # personal
-        Shafiques-MacBook-Air = libx.mkDarwin { hostname = "Shafiques-MacBook-Air"; };
+        Shafiques-MacBook-Air = libx.mkDarwin {hostname = "Shafiques-MacBook-Air";};
       };
 
       colmena = {
         meta = {
-          nixpkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+          nixpkgs = import inputs.nixpkgs {system = "x86_64-linux";};
           specialArgs = {
             inherit inputs outputs stateVersion self;
           };
         };
 
-        defaults = { lib, config, name, ... }: {
+        defaults = {
+          lib,
+          config,
+          name,
+          ...
+        }: {
           imports = [
             inputs.home-manager.nixosModules.home-manager
           ];
@@ -50,7 +61,5 @@
         morphnix = import ./hosts/nixos/morphnix;
         nvllama = import ./hosts/nixos/nvllama;
       };
-
     };
-
 }
