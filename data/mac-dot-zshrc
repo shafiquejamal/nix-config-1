@@ -35,9 +35,7 @@ compinit
 source <(kubectl completion zsh)
 export KUBE_EDITOR="nvim"
 
-alias kc='kubectl'
-alias kcg='kubectl get'
-alias kcgpo='kubectl get pod'
+alias ll="ls -al"
 
 , () {
   nix run nixpkgs#comma -- "$@"
