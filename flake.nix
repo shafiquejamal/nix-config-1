@@ -1,7 +1,7 @@
 {
   inputs = {
     # Every six months, update this. For six months from release, continues to reeive security updates.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -30,7 +30,7 @@
     with inputs; let
       inherit (self) outputs;
 
-      stateVersion = "25.05";
+      stateVersion = "25.11";
       libx = import ./lib {inherit inputs outputs stateVersion;};
     in {
       darwinConfigurations = {
