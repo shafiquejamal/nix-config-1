@@ -96,6 +96,8 @@ in {
       "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
+      "hp-easy-start"
+      "obs"
       "signal"
       "slack"
       "telegram"
