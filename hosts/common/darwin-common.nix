@@ -96,6 +96,7 @@ in {
       "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
+      "handbrake"
       "hp-easy-start"
       "obs"
       "signal"
