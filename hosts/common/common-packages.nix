@@ -29,7 +29,7 @@ in {
     jq
     just
     kubectl
-    # neovim
+    neovim
     nmap
     nodejs_24
     podman
