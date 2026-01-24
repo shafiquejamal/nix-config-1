@@ -12,7 +12,6 @@ in {
     nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
 
     ## stable
-    cargo
     comma
     coreutils
     diffr # Modern Unix `diff`
@@ -35,14 +34,13 @@ in {
     podman
     podman-compose
     ripgrep
-    rustc
+    rustup
     tree
     unzip
     uv
     watch
     wget
     zoom-us
-    cargo
 
     # requires nixpkgs.config.allowUnfree = true;
     # vscode-extensions.ms-vscode-remote.remote-ssh
