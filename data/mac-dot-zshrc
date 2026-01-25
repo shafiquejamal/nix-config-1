@@ -5,6 +5,7 @@
 [[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
 
+
 # Default prompt
 PS1="%n@%m %1~ %# "
 if [[ "$(ps -o uid= $PPID)" -eq "$UID" ]]; then
@@ -17,7 +18,7 @@ export LSCOLORS=gxfxcxdxbxgggdabagacad
 export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
 # path fix for homebrew
-export PATH=$PATH:/opt/homebrew/bin/
+export PATH=$PATH:/opt/homebrew/bin/:~/.local/bin/
 export PATH=$HOME/.npm-global/bin:$PATH
 #export EDITOR=vi
 export VISUAL=nvim
