@@ -85,6 +85,7 @@ in {
       #"FelixKratz/formulae" #sketchybar
     ];
     casks = [
+      "adobe-acrobat-reader"
       "citrix-workspace"
       "element"
       "firefox"
@@ -96,7 +97,7 @@ in {
       "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
-      "handbrake"
+      "handbrake-app"
       "hp-easy-start"
       "obs"
       "signal"
@@ -144,6 +145,9 @@ in {
   };
 
   system.defaults.CustomUserPreferences = {
+    "com.apple.audio.coreaudiod" = {
+      "Ducking" = false;
+    };
     "com.apple.finder" = {
       ShowExternalHardDrivesOnDesktop = true;
       ShowHardDrivesOnDesktop = false;

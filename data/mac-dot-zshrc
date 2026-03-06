@@ -45,3 +45,4 @@ alias ll="ls -al"
 eval "$(starship init zsh)"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 # export $XDG_CONFIG_HOME="~/.config"
+[ -f ~/.zsh_personal ] && source ~/.zsh_personal
