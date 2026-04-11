@@ -86,6 +86,7 @@ in {
     ];
     casks = [
       "adobe-acrobat-reader"
+      "anomalyco/tap/opencode"
       "citrix-workspace"
       "element"
       "firefox"
@@ -99,6 +100,8 @@ in {
       "ghostty"
       "handbrake-app"
       "hp-easy-start"
+      "image2icon"
+      "imagemagick"
       "obs"
       "signal"
       "slack"

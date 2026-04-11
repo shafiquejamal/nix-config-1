@@ -12,6 +12,7 @@ in {
     nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
 
     ## stable
+    awscli2
     comma
     coreutils
     diffr # Modern Unix `diff`
@@ -35,6 +36,7 @@ in {
     podman-compose
     ripgrep
     rustup
+    rustdesk
     tree
     unzip
     uv
