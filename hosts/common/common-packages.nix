@@ -32,6 +32,7 @@ in {
     neovim
     nmap
     nodejs_24
+    opencode
     podman
     podman-compose
     ripgrep

@@ -86,7 +86,6 @@ in {
     ];
     casks = [
       "adobe-acrobat-reader"
-      "anomalyco/tap/opencode"
       "citrix-workspace"
       "element"
       "firefox"
