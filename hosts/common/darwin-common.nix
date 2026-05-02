@@ -79,7 +79,11 @@ in {
     global.autoUpdate = true;
 
     brews = [
+      "bitwarden-cli"
+      "imagemagick"
       "mas"
+      "oven-sh/bun/bun"
+      "neovim"
     ];
     taps = [
       #"FelixKratz/formulae" #sketchybar
@@ -87,6 +91,7 @@ in {
     casks = [
       "adobe-acrobat-reader"
       "citrix-workspace"
+      "codex"
       "element"
       "firefox"
       "folx"
@@ -100,7 +105,6 @@ in {
       "handbrake-app"
       "hp-easy-start"
       "image2icon"
-      "imagemagick"
       "obs"
       "signal"
       "slack"

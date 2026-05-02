@@ -29,7 +29,6 @@ in {
     jq
     just
     kubectl
-    neovim
     nmap
     nodejs_24
     opencode
@@ -37,7 +36,6 @@ in {
     podman-compose
     ripgrep
     rustup
-    rustdesk
     tree
     unzip
     uv
