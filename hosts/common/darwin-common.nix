@@ -17,6 +17,7 @@ in {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "sj"];
       warn-dirty = false;
     };
     channel.enable = false;
