@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   unstablePkgs,
   ...
@@ -7,43 +8,46 @@
   inherit (inputs) nixpkgs nixpkgs-unstable;
 in {
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    nixpkgs-unstable.legacyPackages.${pkgs.system}.beszel
-    nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
+  environment.systemPackages =
+    lib.optionals pkgs.stdenv.isLinux [
+      nixpkgs-unstable.legacyPackages.${pkgs.system}.beszel
+    ]
+    ++ (with pkgs; [
+      nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
 
-    ## stable
-    awscli2
-    comma
-    coreutils
-    diffr # Modern Unix `diff`
-    difftastic # Modern Unix `diff`
-    dust # Modern Unix `du`
-    dua # Modern Unix `du`
-    duf # Modern Unix `df`
-    entr # Modern Unix `watch`
-    fd
-    gh
-    go
-    google-chrome
-    jetbrains-mono # font
-    jq
-    just
-    kubectl
-    nmap
-    nodejs_24
-    opencode
-    podman
-    podman-compose
-    ripgrep
-    rustup
-    tree
-    unzip
-    uv
-    watch
-    wget
-    zoom-us
+      ## stable
+      awscli2
+      comma
+      coreutils
+      diffr # Modern Unix `diff`
+      difftastic # Modern Unix `diff`
+      dust # Modern Unix `du`
+      dua # Modern Unix `du`
+      duf # Modern Unix `df`
+      entr # Modern Unix `watch`
+      fd
+      gh
+      go
+      google-chrome
+      jetbrains-mono # font
+      jq
+      just
+      kubectl
+      nmap
+      nodejs_24
+      opencode
+      podman
+      podman-compose
+      ripgrep
+      rustup
+      tree
+      unzip
+      uv
+      watch
+      wget
+      zoom-us
 
-    # requires nixpkgs.config.allowUnfree = true;
-    # vscode-extensions.ms-vscode-remote.remote-ssh
-  ];
+      # requires nixpkgs.config.allowUnfree = true;
+      # vscode-extensions.ms-vscode-remote.remote-ssh
+    ]);
 }
