@@ -9,11 +9,11 @@ in {
   options.services.beszel-agent = {
     enable = mkEnableOption "Beszel agent service";
 
-    # package = mkOption {
-    #   type = types.package;
-    #   default = pkgs.beszel;
-    #   description = "The beszel package to use.";
-    # };
+    package = mkOption {
+      type = types.package;
+      default = pkgs.beszel;
+      description = "The beszel package to use.";
+    };
 
     port = mkOption {
       type = types.port;
@@ -80,7 +80,7 @@ in {
           "EXTRA_FILESYSTEMS=${concatStringsSep "," cfg.extraFilesystems}"
           "PATH=/run/current-system/sw/bin:$PATH"
         ];
-        ExecStart = "/run/current-system/sw/bin/beszel-agent";
+        ExecStart = "${cfg.package}/bin/beszel-agent";
         User = cfg.user;
         Group = builtins.head cfg.groups;
         Restart = "always";

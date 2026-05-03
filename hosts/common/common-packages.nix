@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   unstablePkgs,
   ...
@@ -8,11 +7,7 @@
   inherit (inputs) nixpkgs nixpkgs-unstable;
 in {
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages =
-    lib.optionals pkgs.stdenv.isLinux [
-      nixpkgs-unstable.legacyPackages.${pkgs.system}.beszel
-    ]
-    ++ (with pkgs; [
+  environment.systemPackages = with pkgs; [
       nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
 
       ## stable
@@ -49,5 +44,5 @@ in {
 
       # requires nixpkgs.config.allowUnfree = true;
       # vscode-extensions.ms-vscode-remote.remote-ssh
-    ]);
+    ];
 }
