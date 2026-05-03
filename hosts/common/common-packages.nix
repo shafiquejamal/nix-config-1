@@ -8,7 +8,7 @@
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-      nixpkgs-unstable.legacyPackages.${pkgs.system}.talosctl
+    nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.talosctl
 
       ## stable
       awscli2
