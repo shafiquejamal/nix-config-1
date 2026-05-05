@@ -80,7 +80,6 @@ in {
     global.autoUpdate = true;
 
     brews = [
-      "bitwarden-cli"
       "imagemagick"
       "mas"
       "oven-sh/bun/bun"

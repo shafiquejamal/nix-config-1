@@ -106,6 +106,12 @@
   programs.home-manager.enable = true;
   programs.nix-index.enable = true;
 
+  programs.opencode = {
+    enable = true;
+  };
+
+  xdg.configFile."opencode/opencode.json".source = lib.mkForce ../data/opencode-conf;
+
   programs.alacritty.enable = true;
 
   programs.bat.enable = true;

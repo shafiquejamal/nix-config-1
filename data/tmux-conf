@@ -21,8 +21,8 @@ set -g @dracula-show-fahrenheit false
 set -g status-position top
 
 set -g default-terminal "tmux-256color"
-# set -ag terminal-overrides ",xterm-256color:RGB"
-# set-option -ga terminal-overrides ",xterm-256color:Tc"
+set -ag terminal-overrides ",xterm-256color:RGB"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
 
 # Or use a wildcard instead of forcing a default mode.
 # Some users in the comments of this gist have reported that this work better.
@@ -37,3 +37,7 @@ run '~/.tmux/plugins/tpm/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
+
+set -g extended-keys on
+set -as terminal-features 'xterm*:extkeys'
+
