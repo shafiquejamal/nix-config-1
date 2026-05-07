@@ -3,6 +3,24 @@
   "keybinds": {
     "input_submit": "return",
     "input_newline": "shift+return"
+  }, 
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:GH_PERSONAL_ACCESS_TOKEN_READ_ORG_REPO}"
+      },
+      "enabled": true
+    }
   }
 }
 
