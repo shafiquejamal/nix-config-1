@@ -27,6 +27,7 @@ in {
       jetbrains-mono # font
       jq
       just
+      jdk21
       kubectl
       nmap
       nodejs_24
