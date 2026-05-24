@@ -108,6 +108,7 @@ in {
       "obs"
       "signal"
       "slack"
+      "temurin"
       "telegram"
       "vlc"
       "whatsapp"
