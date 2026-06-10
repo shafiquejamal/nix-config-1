@@ -73,9 +73,10 @@ in {
   homebrew = {
     enable = true;
     onActivation = {
-      cleanup = "zap";
+      cleanup = "uninstall";
       autoUpdate = true;
       upgrade = true;
+      extraFlags = [ "--force" ];
     };
     global.autoUpdate = true;
 

@@ -121,21 +121,16 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    extraConfig = ''
-      StrictHostKeyChecking no
-    '';
-    matchBlocks = {
-      # ~/.ssh/config
+    settings = {
       "*" = {
-        user = "root";
-        extraOptions = {
-          UserKnownHostsFile = "/dev/null";
-          LogLevel = "ERROR";
-        };
+        User = "root";
+        StrictHostKeyChecking = "no";
+        UserKnownHostsFile = "/dev/null";
+        LogLevel = "ERROR";
       };
       "github.com" = {
-        hostname = "ssh.github.com";
-        port = 443;
+        HostName = "ssh.github.com";
+        Port = 443;
       };
     };
   };
