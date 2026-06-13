@@ -106,6 +106,7 @@ in {
       "handbrake-app"
       "hp-easy-start"
       "image2icon"
+      "intellij-idea-ce"
       "obs"
       "signal"
       "slack"
