@@ -11,6 +11,8 @@ return function(opts)
 			["c"] = "*.c",
 			["go"] = "*.go",
 			["java"] = "*.java",
+			["kt"] = "*.kt",
+			["kts"] = "*.kts",
 			["js"] = "*.js",
 			["json"] = "*.json",
 			["lua"] = "*.lua",

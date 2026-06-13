@@ -7,6 +7,7 @@ return {
 			yaml = { "yamllint" },
 			python = { "pylint" },
 			java = { "checkstyle" },
+			kotlin = { "ktlint" },
 			terraform = { "tflint" },
 			javascript = { "eslint" },
 			typescript = { "eslint" },
