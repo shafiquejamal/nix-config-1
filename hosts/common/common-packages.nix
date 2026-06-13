@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (inputs) nixpkgs nixpkgs-unstable;
+  mcmodding-mcp = pkgs.callPackage ./mcmodding-mcp.nix {};
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -30,6 +31,7 @@ in {
     just
     jdk21
     kubectl
+    mcmodding-mcp
     nmap
     nodejs_24
     opencode
