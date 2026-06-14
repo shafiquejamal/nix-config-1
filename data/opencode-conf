@@ -42,6 +42,21 @@
         "Authorization": "Bearer {env:GH_PERSONAL_ACCESS_TOKEN_READ_ORG_REPO}"
       },
       "enabled": true
+    },
+    "apify-business-entity": {
+      "type": "remote",
+      "url": "https://business-entity-mcp.apify.actor/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:APIFY_TOKEN}"
+      },
+      "enabled": true
+    },
+    "apify": {
+      "url": "https://mcp.apify.com",
+      "headers": {
+        "Authorization": "Bearer <APIFY_TOKEN>"
+      },
+      "enabled": true
     }
   }
 }
