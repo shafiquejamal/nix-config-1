@@ -22,6 +22,12 @@
     "input_newline": "shift+return"
   },
   "mcp": {
+    "mcmodding-mcp": {
+      "command": "npx",
+      "args": ["-y", "@mcmodding/mcp"],
+      "type": "local",
+      "enabled": true
+    },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",

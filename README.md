@@ -16,7 +16,7 @@ nix flake lock --update-input nixpkgs github:NixOS/nixpkgs/95ec937f47c15392185aa
 # This takes the latest - maybe be not a good idea to take the last, because will not have the cache, and will rebuild the world
 # Run this - then wait a day or two to build
 nix flake update nixpkgs
-sudo nix flake update && sudo darwin-rebuild switch --flake .
+nix flake update && sudo darwin-rebuild switch --flake .
 ```
 
 ## Adding a Linux host
