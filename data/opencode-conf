@@ -54,7 +54,7 @@
     "apify": {
       "url": "https://mcp.apify.com",
       "headers": {
-        "Authorization": "Bearer <APIFY_TOKEN>"
+        "Authorization": "Bearer <env:APIFY_TOKEN>"
       },
       "enabled": true
     }
