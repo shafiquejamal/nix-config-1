@@ -6,8 +6,18 @@
 }: let
   inherit (inputs) nixpkgs nixpkgs-unstable;
   mcmodding-mcp = pkgs.callPackage ./mcmodding-mcp.nix {};
+  java17 = pkgs.writeShellScriptBin "java17" ''
+    exec ${pkgs.jdk17}/bin/java "$@"
+  '';
+  javac17 = pkgs.writeShellScriptBin "javac17" ''
+    exec ${pkgs.jdk17}/bin/javac "$@"
+  '';
 in {
   nixpkgs.config.allowUnfree = true;
+  environment.variables = {
+    JAVA17_HOME = "${pkgs.jdk17}";
+    JAVA25_HOME = "${pkgs.jdk25}";
+  };
   environment.systemPackages = with pkgs; [
     nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.talosctl
 
@@ -30,6 +40,8 @@ in {
     jq
     just
     jdk25
+    java17
+    javac17
     kubectl
     mcmodding-mcp
     nmap
