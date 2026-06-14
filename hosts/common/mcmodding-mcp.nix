@@ -7,7 +7,9 @@
   pnpm_10,
   pnpmConfigHook,
   makeWrapper,
+  pkg-config,
   python3,
+  vips,
   cctools,
   xcbuild,
 }:
@@ -39,12 +41,17 @@ stdenv.mkDerivation (finalAttrs: {
       pnpmConfigHook
       pnpm
       makeWrapper
+      pkg-config
       python3
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
       cctools
       xcbuild
     ];
+
+  buildInputs = [
+    vips
+  ];
 
   postPatch = ''
     substituteInPlace package.json \
@@ -60,7 +67,7 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm rebuild better-sqlite3 esbuild protobufjs
     popd
 
-    pushd node_modules/.pnpm/sharp@0.34.5/node_modules/sharp
+    pushd node_modules/.pnpm/sharp@0.32.6/node_modules/sharp
     pnpm run install
     popd
 

@@ -23,9 +23,8 @@
   },
   "mcp": {
     "mcmodding-mcp": {
-      "command": "npx",
-      "args": ["-y", "@mcmodding/mcp"],
       "type": "local",
+      "command": ["mcmodding-mcp"],
       "enabled": true
     },
     "context7": {
@@ -46,4 +45,3 @@
     }
   }
 }
-

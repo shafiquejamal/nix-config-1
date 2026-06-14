@@ -29,7 +29,7 @@ in {
     jetbrains-mono # font
     jq
     just
-    jdk21
+    jdk25
     kubectl
     mcmodding-mcp
     nmap

@@ -107,6 +107,7 @@ in {
       "hp-easy-start"
       "image2icon"
       "intellij-idea-ce"
+      "kotlin-lsp"
       "obs"
       "signal"
       "slack"
