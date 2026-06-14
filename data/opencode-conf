@@ -52,9 +52,10 @@
       "enabled": true
     },
     "apify": {
+      "type": "remote",
       "url": "https://mcp.apify.com",
       "headers": {
-        "Authorization": "Bearer <env:APIFY_TOKEN>"
+        "Authorization": "Bearer {env:APIFY_TOKEN}"
       },
       "enabled": true
     }
