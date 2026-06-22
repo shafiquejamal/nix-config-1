@@ -111,7 +111,7 @@
   };
 
   xdg.configFile."opencode/opencode.json".source = lib.mkForce ../data/opencode-conf;
-  xdg.configFile."opencode/AGENTS.md".source = ../data/AGENTS.md;
+  xdg.configFile."opencode/AGENTS.md".source = ../data/opencode-agents;
 
   programs.alacritty.enable = true;
 
