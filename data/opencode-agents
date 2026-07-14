@@ -1,5 +1,12 @@
 # AGENTS.md
 
+## New Minecraft Mod Project Protocol
+
+- Before starting any new Minecraft mod project, read `~/.config/opencode/PROJECT_PLANNING.md`
+- Ask all clarifying questions from the checklist before writing code
+- Propose complete architecture and wait for confirmation before implementing
+- If making 3+ commits that change the same core mechanism (trigger, area, timing), pause and ask for detailed requirements
+
 ## Instruction Feedback
 
 - When a user instruction is clear enough to execute but is materially ambiguous, under-specified, or likely to cause the wrong implementation, provide brief feedback on how the instruction could be written more precisely.
