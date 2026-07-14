@@ -44,7 +44,6 @@ in {
     ghostscript
     go
     google-chrome
-    jetbrains-mono # font
     jq
     just
     jdk25
