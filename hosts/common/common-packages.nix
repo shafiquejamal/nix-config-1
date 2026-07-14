@@ -12,10 +12,17 @@
   javac17 = pkgs.writeShellScriptBin "javac17" ''
     exec ${pkgs.jdk17}/bin/javac "$@"
   '';
+  java21 = pkgs.writeShellScriptBin "java21" ''
+    exec ${pkgs.jdk21}/bin/java "$@"
+  '';
+  javac21 = pkgs.writeShellScriptBin "javac21" ''
+    exec ${pkgs.jdk21}/bin/javac "$@"
+  '';
 in {
   nixpkgs.config.allowUnfree = true;
   environment.variables = {
     JAVA17_HOME = "${pkgs.jdk17}";
+    JAVA21_HOME = "${pkgs.jdk21}";
     JAVA25_HOME = "${pkgs.jdk25}";
   };
   environment.systemPackages = with pkgs; [
@@ -43,6 +50,8 @@ in {
     jdk25
     java17
     javac17
+    java21
+    javac21
     kubectl
     mcmodding-mcp
     nmap
