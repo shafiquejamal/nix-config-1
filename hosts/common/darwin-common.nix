@@ -83,7 +83,6 @@ in {
     brews = [
       "imagemagick"
       "mas"
-      "oven-sh/bun/bun"
       "neovim"
     ];
     taps = [

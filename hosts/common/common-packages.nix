@@ -23,6 +23,7 @@ in {
 
     ## stable
     awscli2
+    bun
     comma
     coreutils
     diffr # Modern Unix `diff`
