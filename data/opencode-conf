@@ -22,6 +22,11 @@
     "input_newline": "shift+return"
   },
   "mcp": {
+    "huggingface": {
+      "type": "remote",
+      "url": "https://connect.composio.dev/mcp",
+      "enabled": true
+    },
     "openrouter": {
       "type": "remote",
       "url": "https://mcp.openrouter.ai/mcp",
