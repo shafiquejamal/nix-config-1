@@ -76,7 +76,7 @@ in {
       cleanup = "uninstall";
       autoUpdate = true;
       upgrade = true;
-      extraFlags = [ "--force" ];
+      extraFlags = ["--force"];
     };
     global.autoUpdate = true;
 
@@ -84,9 +84,11 @@ in {
       "imagemagick"
       "mas"
       "neovim"
+      "tree-sitter-cli"
     ];
     taps = [
       #"FelixKratz/formulae" #sketchybar
+      "oven-sh/bun"
     ];
     casks = [
       "adobe-acrobat-reader"
