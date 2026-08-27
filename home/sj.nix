@@ -119,6 +119,8 @@
   programs.bat.config.theme = "Nord";
   programs.zoxide.enable = true;
 
+  programs.uv.enable = true;
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;

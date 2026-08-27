@@ -68,6 +68,34 @@
         "Authorization": "Bearer {env:APIFY_TOKEN}"
       },
       "enabled": false
+    },
+    "aws-mcp": {
+      "type": "local",
+      "command": ["uvx", "mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp"],
+      "env": { "AWS_PROFILE": "shafiquejamal" },
+      "enabled": true
+    },
+    "aws-knowledge": {
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": true
+    },
+    "aws-docs": {
+      "type": "local",
+      "command": ["uvx", "awslabs.aws-documentation-mcp-server@latest"],
+      "env": { "FASTMCP_LOG_LEVEL": "ERROR", "AWS_DOCUMENTATION_PARTITION": "aws" },
+      "enabled": true
+    },
+    "aws-iac": {
+      "type": "local",
+      "command": ["uvx", "awslabs.aws-iac-mcp-server@latest"],
+      "env": { "AWS_PROFILE": "shafiquejamal", "FASTMCP_LOG_LEVEL": "ERROR" },
+      "enabled": true
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp"],
+      "enabled": true
     }
   }
 }
