@@ -83,13 +83,13 @@
     "aws-docs": {
       "type": "local",
       "command": ["uvx", "awslabs.aws-documentation-mcp-server@latest"],
-      "env": { "FASTMCP_LOG_LEVEL": "ERROR", "AWS_DOCUMENTATION_PARTITION": "aws" },
+      "environment": { "FASTMCP_LOG_LEVEL": "ERROR", "AWS_DOCUMENTATION_PARTITION": "aws" },
       "enabled": true
     },
     "aws-iac": {
       "type": "local",
       "command": ["uvx", "awslabs.aws-iac-mcp-server@latest"],
-      "env": { "AWS_PROFILE": "shafiquejamal", "FASTMCP_LOG_LEVEL": "ERROR" },
+      "environment": { "AWS_PROFILE": "shafiquejamal", "FASTMCP_LOG_LEVEL": "ERROR" },
       "enabled": true
     },
     "chrome-devtools": {
