@@ -72,7 +72,7 @@
     "aws-mcp": {
       "type": "local",
       "command": ["uvx", "mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp"],
-      "env": { "AWS_PROFILE": "shafiquejamal" },
+      "environment": { "AWS_PROFILE": "shafiquejamal" },
       "enabled": true
     },
     "aws-knowledge": {
@@ -95,6 +95,32 @@
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp"],
+      "enabled": true
+    },
+    "chrome-devtools-profile": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--user-data-dir=/Users/sj/Library/Application Support/Google/Chrome",
+        "--chrome-arg=--profile-directory=Default"
+      ],
+      "enabled": true
+    },
+    "chrome-devtools-existing": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--browser-url=http://127.0.0.1:9222"
+      ],
+      "enabled": true
+    },
+    "firefox-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "@mozilla/firefox-devtools-mcp@latest"],
       "enabled": true
     }
   }
