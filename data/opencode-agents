@@ -7,6 +7,16 @@
 - Propose complete architecture and wait for confirmation before implementing
 - If making 3+ commits that change the same core mechanism (trigger, area, timing), pause and ask for detailed requirements
 
+## Browser Launching
+
+- When the user asks to open a browser, immediately launch a new, separate Chrome instance. Do not inspect, attach to, kill, or otherwise manage Chrome instances launched by other sessions, and never kill or restart the user's main Chrome.
+- Do not report on or worry about other sessions' browsers unless the user asks about them.
+- Working recipe (macOS):
+  `open -na "Google Chrome" --args --remote-debugging-port=9222 --remote-allow-origins='*' --user-data-dir="<fresh temp dir>/chrome-profile" --no-first-run --no-default-browser-check "<URL>"`
+  Then connect with the `chrome-devtools-existing` tools (they attach to port 9222) and use those for all further browsing/automation in the session.
+- A fresh `user-data-dir` means no saved logins — warn the user they will need to log in manually to any sites.
+- If port 9222 is already in use by an instance launched earlier in this same session, reuse that instance via the `chrome-devtools-existing` tools instead of launching another.
+
 ## Instruction Feedback
 
 - When a user instruction is clear enough to execute but is materially ambiguous, under-specified, or likely to cause the wrong implementation, provide brief feedback on how the instruction could be written more precisely.
