@@ -9,15 +9,18 @@
 
 ## Browser Launching
 
-- When the user asks to open a browser, immediately launch a new, separate Chrome instance. Never kill, quit, or restart any existing Chrome window or instance — it may have been opened by another session that is still using it, or it may be the user's main Chrome. Do not inspect, attach to, or otherwise manage Chrome instances launched by other sessions.
+- When the user asks to open a browser, immediately launch a new, separate Chrome instance. Never kill, quit, restart, or attach to any Chrome window or instance not created in the current session — other opencode sessions own their browsers (including whatever holds port 9222), and the user's main Chrome is untouchable. Do not inspect or otherwise manage Chrome instances launched by other sessions.
 - Do not report on or worry about other sessions' browsers unless the user asks about them.
-- Working recipe (macOS):
-  `open -na "Google Chrome" --args --remote-debugging-port=9222 --remote-allow-origins='*' --user-data-dir="<fresh temp dir>/chrome-profile" --no-first-run --no-default-browser-check "<URL>"`
-  Then connect with the `chrome-devtools-existing` tools (they attach to port 9222) and use those for all further browsing/automation in the session.
-- A fresh `user-data-dir` means no saved logins — warn the user they will need to log in manually to any sites.
-- Prefer port 9222 (the `chrome-devtools-existing` tools are configured to attach to it). If an instance launched earlier in this same session is already listening on 9222, reuse it via the `chrome-devtools-existing` tools instead of launching another.
-- If port 9222 is held by anything else (another session's Chrome or an unknown process), leave it entirely alone and launch a new instance on a different, available port instead. Note the `chrome-devtools-existing` tools are pinned to 9222, so they cannot attach to an instance on another port.
-- When choosing a different port, pick it at random and verify it is actually free before launching, retrying with a new random port if it is taken — e.g. `PORT=$((10000 + RANDOM % 50000))`, then confirm `lsof -iTCP:$PORT -sTCP:LISTEN` prints nothing.
+- Never launch or attach the `chrome-devtools-profile` server — it is configured to the user's main Chrome profile.
+- Never default the launch recipe to port 9222. Before launching, verify the chosen port is actually free — e.g. `curl -s --max-time 2 http://127.0.0.1:$PORT/json/version` fails with connection refused, or `lsof -iTCP:$PORT -sTCP:LISTEN` prints nothing. If 9222 is held by anything else, launch on a different free port — never launch with 9222 args while another instance holds it (the debugger silently fails to bind, and the `chrome-devtools-existing` tools, pinned to 9222, may then attach to whoever holds the port). An instance launched earlier in this same session on 9222 may be reused via the `chrome-devtools-existing` tools instead of launching another.
+- Working recipe (macOS), with `$PORT` verified free first:
+  `open -na "Google Chrome" --args --remote-debugging-port=$PORT --remote-allow-origins='*' --user-data-dir="$(mktemp -d)/chrome-profile-$PORT" --incognito --no-first-run --no-default-browser-check "<URL>"`
+  The fresh `--user-data-dir` is required because modern Chrome refuses remote debugging on the default profile. `--incognito` means no persisted logins — the user authenticates by hand.
+- After any launch meant to be driven via the `chrome-devtools-existing` tools, first verify the attached browser is the one just launched — list pages and confirm the expected URL/tab is present. If the tabs are not yours, disconnect immediately — never drive another session's browser.
+- When the `chrome-devtools` MCP toolsets are unavailable (a foreign browser on the pinned port, profile locks, leftover browsers), drive Chrome directly over the DevTools protocol with the node driver bundled in the global `outlook-webmail-teams` skill:
+  `node ~/.config/opencode/skills/outlook-webmail-teams/cdp.js PORT <command>`
+  The command set is documented in that skill's SKILL.md. Before launching a new browser, check that skill's `live-session.md` for an authenticated instance from a previous session that may still be running.
+- opencode loads these instructions at session start, so already-running sessions keep the old copy until restarted.
 
 ## Instruction Feedback
 
