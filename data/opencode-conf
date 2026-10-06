@@ -15,7 +15,8 @@
     "todowrite": "allow",
     "todoread": "allow",
     "question": "allow",
-    "grep": "allow"
+    "grep": "allow",
+    "huggingface_COMPOSIO_MANAGE_SKILL": "deny"
   },
   "keybinds": {
     "input_submit": "return",
