@@ -37,10 +37,16 @@ in {
     # unstablePkgs.yt-dlp
     # unstablePkgs.get_iplayer
     unstablePkgs.colmena
+    unstablePkgs.tree-sitter
 
     ## stable CLI
     # pkgs.nix
     # firefox
+    codex
+    ffmpeg
+    imagemagick
+    neovim
+    qpdf
   ];
 
   fonts.packages = [
@@ -80,28 +86,18 @@ in {
     };
     global.autoUpdate = true;
 
-    brews = [
-      "imagemagick"
-      "mas"
-      "neovim"
-      "tree-sitter-cli"
-    ];
+    brews = [];
     taps = [
       #"FelixKratz/formulae" #sketchybar
-      "oven-sh/bun"
     ];
     casks = [
       "adobe-acrobat-reader"
       "citrix-workspace"
-      "codex"
       "element"
       "firefox"
       "folx"
       "font-fira-code"
-      "font-fira-code-nerd-font"
       "font-fira-mono-for-powerline"
-      "font-hack-nerd-font"
-      "font-jetbrains-mono-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
       "handbrake-app"
@@ -112,7 +108,6 @@ in {
       "obs"
       "signal"
       "slack"
-      "temurin"
       "telegram"
       "vlc"
       "whatsapp"
