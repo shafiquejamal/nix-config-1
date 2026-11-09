@@ -113,6 +113,16 @@
   xdg.configFile."opencode/opencode.json".source = lib.mkForce ../data/opencode-conf;
   xdg.configFile."opencode/AGENTS.md".source = ../data/opencode-agents;
 
+  programs.claude-code = {
+    enable = true;
+    # Merge declared settings into a writable ~/.claude/settings.json so
+    # Claude Code can still persist runtime changes (e.g. approved permissions).
+    mutableSettings = true;
+    # Declarative ~/.claude/settings.json entries go here, e.g.
+    # settings.permissions.allow = [ "Bash(git diff:*)" ];
+    settings = { };
+  };
+
   programs.alacritty.enable = true;
 
   programs.bat.enable = true;
