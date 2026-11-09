@@ -22,6 +22,12 @@
   The command set is documented in that skill's SKILL.md. Before launching a new browser, check that skill's `live-session.md` for an authenticated instance from a previous session that may still be running.
 - opencode loads these instructions at session start, so already-running sessions keep the old copy until restarted.
 
+## Installing Software
+
+- Never run `brew install` on the user's Mac. Homebrew is managed by nix-darwin with `cleanup = "uninstall"`, so anything undeclared is removed on the next rebuild.
+- For a one-off tool, use `nix shell nixpkgs#<package> -c <command>` or comma (`, <command>`).
+- If a tool needs to stay installed, tell the user and propose declaring it in their nix-config repo (`hosts/common/darwin-common.nix`).
+
 ## Instruction Feedback
 
 - When a user instruction is clear enough to execute but is materially ambiguous, under-specified, or likely to cause the wrong implementation, provide brief feedback on how the instruction could be written more precisely.
